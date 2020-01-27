@@ -1,4 +1,20 @@
 
+=head1 NAME
+
+total_cob_area.pl - calculate the area of a cob from phytomorph data
+
+=head1 DESCRIPTION
+
+ perl total_cob_area.pl -i phytomorphfile -r <resolution>
+
+=head1 AUTHORS
+
+Lukas Mueller <lam87@cornell.edu>
+AC Repka <acr78@cornell.edu>
+
+=cut
+
+
 use strict;
 
 use Getopt::Std;
@@ -6,6 +22,11 @@ use Getopt::Std;
 our($opt_i, $opt_r);
 
 getopts('i:r:');
+
+if ($opt_r != 600 && $opt_r !=1200) { 
+    print STDERR "Resolution has to be either 600 or 1200 dpi\n";
+    exit();
+}
 
 my $file = $opt_i;
 
